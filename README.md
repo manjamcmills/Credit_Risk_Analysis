@@ -20,7 +20,7 @@ The features included everything except "loan_status". Here is a snapshot of the
 
 The target group only contain the "loan_status". Here is a snapshot of the target data called “y”:
 
-<img src="Resources/y_group.png" alt="y_group" style="width:300px;"/>
+<img src="Resources/y_group.png" alt="y_group" style="width:400px;"/>
 
 After separating into 2 groups, the “train_test_split” method from the scikit-learn library was used to further split
 the data into the 4 groups of X_train, X_test, y_train, and y_test.
@@ -42,23 +42,55 @@ Classification Report” was calculated using the imbalanced-learn library metho
 ![](Resources/rand_conf_class.png)
 
 ### SMOTE Oversampling
-This is a type of data augmentation for the minority class and is referred to as the
-Another approach to addressing imbalanced datasets to oversample the minority class is that new
-examples can be synthesized from the existing examples. The Synthetic Minority Oversampling
-Technique, or SMOTE for short, method from imbalanced-learn library accomplishes this goal. SMOTE works by
-selecting examples that are close in the feature space, drawing a line between the examples in the
-feature space and drawing a new sample at a point along that line.
+Another approach to addressing imbalanced datasets to oversample the minority class is that new examples can be synthesized from the existing examples. The Synthetic Minority Oversampling Technique, or SMOTE for short, method from imbalanced-learn library accomplishes this goal. SMOTE works by selecting examples that are close in the feature space, drawing a line between the examples in the feature space and drawing a new sample at a point along that line. 
+
 After using this method, similar to the RandomOver Sampling method, there were also 51,366
 “low_risk” and 51,366 “high_risk”.
+![](Resources/smote.png)
+
+The following steps were applied just like before with theRandomOver Sampling method: 
+
+![](Resources/smote_2.png)
+
+
+
+
 
 ## Undersampling Results
-Undersampling techniques remove examples from the training dataset that belong to the majority class
-in order to better balance the class distribution, such as reducing the skew from a 1:100 to a 1:10, 1:2,
+Undersampling techniques remove examples from the training dataset that belong to the majority class in order to better balance the class distribution, such as reducing the skew from a 1:100 to a 1:10, 1:2,
 or even a 1:1 class distribution.
+
 ### ClusterCentroids
-The ClusterCentroids algorithm from the imbalanced-learn library is a method that reduces the number
-of samples while generating a new set according to the given original data set. This means that it will
-remove the majority class and generating a new set
+Cluster centroid undersampling algorithm identifies clusters of the majority class, then generates synthetic data points, called centroids, that are representative of the clusters. The majority class is then undersampled down to the size of the minority class.
+
+After using the ClusterCentroids method on the data, there were 246 "high_risk" and 246 "low-risk". 
+![](Resources/cluster_count.png)
+
+Just like before, the following steps were taken:
+1) The resampled data was fitted to a logistic regression model. 
+2) Balanced Accuracy was calculated
+3) Confusion Matrix was displayed
+4) The imbalanced classfication report was displayed
+
+![](Resources/cluster_more.png)
+
+## Combination (Over and Under) Sampling Results
+A downside of oversampling with SMOTE is its reliance on the immediate neighbors of a data point. Because the algorithm doesn't see the overall distribution of data, the new data points it creates can be heavily influenced by outliers. This can lead to noisy data. With undersampling, the downsides are that it involves loss of data and is not an option when the dataset is small. One way to deal with these challenges is to use a sampling strategy that is a combination of oversampling and undersampling.
+
+
+### SMOTEENN
+SMOTEENN combines the SMOTE and Edited Nearest Neighbors (ENN) algorithms. SMOTEENN is a two-step process:
+1) Oversample the minority class with SMOTE.
+2) Clean the resulting data with an undersampling strategy. If the two nearest neighbors of a data point belong to two different classes, that data point is dropped.
+
+The SMOTEENN method was then applied to our data.  The result was having 68,460 "high_risk" and 62011 "low_risk". Then the model was created was our resampled & undersampled data.
+
+![](Resources/smoteenn.png)
+
+Yet again, the same coding/calculations were made to evaulated the model.
+
+![](Resources/smoteenn_2.png)
+
 
 
 
