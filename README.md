@@ -18,8 +18,9 @@ Before any of the techniques could be used, the data had to be cleaned and sorte
 The features included everything except "loan_status". Here is a snapshot of the features data frame called “X”:
 ![](Resources/X_group.png)
 The target group only contain the "loan_status". Here is a snapshot of the target data called “y”:
-![](Resources/y_group.png)
-
+<p align="center">
+<img src="Resources/y_group.png" alt="y_group" style="width:250px;"/>
+</p>
 After separating into 2 groups, the “train_test_split” method from SKLEARN was used to further split
 the data into the 4 groups of X_train, X_test, y_train, and y_test.
 ![](Resources/train_test_groups.png)
