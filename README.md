@@ -17,31 +17,29 @@ Before any of the techniques could be used, the data had to be cleaned and sorte
 
 The features included everything except "loan_status". Here is a snapshot of the features data frame called “X”:
 ![](Resources/X_group.png)
+
 The target group only contain the "loan_status". Here is a snapshot of the target data called “y”:
-<p align="center">
-<img src="Resources/y_group.png" alt="y_group" style="width:250px;"/>
-</p>
-After separating into 2 groups, the “train_test_split” method from SKLEARN was used to further split
+
+<img src="Resources/y_group.png" alt="y_group" style="width:300px;"/>
+
+After separating into 2 groups, the “train_test_split” method from the scikit-learn library was used to further split
 the data into the 4 groups of X_train, X_test, y_train, and y_test.
 ![](Resources/train_test_groups.png)
 
-Since the majority class (68,470 “low risk loans”) and the minority class (347 “high risk loans”) were
-such different sizes, the following methods were applied to see which had the best results.
+Since the majority class (68,470 “low risk loans”) and the minority class (347 “high risk loans”) were such different sizes, the following methods were applied to see which had the best results.
 
 ## Oversampling Results
 
 ### RandomOverSampler
-One approach to addressing imbalanced datasets is to oversample the minority class. The
-RandomOverSampler method from imbalanced-learn library randomly duplicates examples in the minority class of
-the training dataset. After using this method, there were 51,366 “low_risk” and 51,366 “high_risk”.
-SHOW PICTURE
-Then a LogisticRegression model was used to “fit” the data using the SKLEARN library.
-SHOW PICTURE
+One approach to addressing imbalanced datasets is to oversample the minority class. The RandomOverSampler method from imbalanced-learn library randomly duplicates examples in the minority class of the training dataset. After using this method, there were 51,366 “low_risk” and 51,366 “high_risk”.
+![](Resources/random_over_sampler.png)
+Then a LogisticRegression model was used to “fit” the data using the scikit-learn library.
+![](Resources/rand_log_reg.png)
 Next, a balanced_accuracy_score was calculated.
-SHOW PICTURE
-Thereafter, a confusion matrix was created from the SKLEARN library and then an “Imbalanced
+![](Resources/rand_acc.png)
+Thereafter, a confusion matrix was created from the scikit-learn library and then an “Imbalanced
 Classification Report” was calculated using the imbalanced-learn library method of classification_report_imbalaced.
-SHOW PICTURE
+![](Resources/rand_conf_class.png)
 
 ### SMOTE Oversampling
 This is a type of data augmentation for the minority class and is referred to as the
