@@ -29,12 +29,14 @@ Since the majority class (68,470 “low risk loans”) and the minority class (3
 ### Random Over Sampler
 One approach to addressing imbalanced datasets is to oversample the minority class. The RandomOverSampler method, from the imbalanced-learn library, randomly duplicates examples in the minority class of the training dataset. After using this method, there were 51,366 “low_risk” and 51,366 “high_risk”.
 ![](Resources/random_over_sampler.png)
+
 Then a LogisticRegression model was used to “fit” the data using the scikit-learn library.
 ![](Resources/rand_log_reg.png)
+
 Next, a balanced_accuracy_score was calculated.
 ![](Resources/rand_acc.png)
-Thereafter, a confusion matrix was created from the scikit-learn library and then an “Imbalanced
-Classification Report” was calculated using the imbalanced-learn library method of classification_report_imbalaced.
+
+Thereafter, a confusion matrix was created from the scikit-learn library and then an “Imbalanced Classification Report” was calculated using the imbalanced-learn library method of classification_report_imbalaced.
 ![](Resources/rand_conf_class.png)
 
 ### SMOTE Oversampling
@@ -162,7 +164,7 @@ The model with the best recall/sensitivity was again AdaBoost with a recall of 0
 ### F1 Score
 The F1 score is a way of combining the precision and recall of the model, and it is defined as the harmonic mean of the model’s precision and recall. Here is the formula for F1:
 
-![](Resources/f1.png)
+<img src="Resources/f1.png" alt="f1" style="height:50px;"/>
 
 
 The model with the best F1 score for both high_risk and low_risk was yet again AdaBoost.  It had a F1-score of 0.14 for high_risk and 0.97 for low_risk. 
