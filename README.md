@@ -1,4 +1,3 @@
-# IN PROGRESS
 # Credit_Risk_Analysis
 
 ## Overview
@@ -120,3 +119,43 @@ Here is the code to apply AdaBoost and fit the model:
 Here are the metrics to evaluate the model:
 ![](Resources/easy_2.png)
 
+## Summary
+To decide which of the models is the best to use, I made a summary table with all of the models showing the following:
+* accuracy
+* Precision
+* Recall (Sensitivity)
+* Specificity
+* F1 Score
+  
+There are other metrics besides these, but I felt that these were the ones I should focus on.
+
+Here is the model summary table:
+![](Resources/summary.PNG)
+
+
+*Note* <br>
+TP = True Positive &nbsp; FP = False Positive &nbsp; 
+TN = True Negative  &nbsp;  FN = False Negative
+
+### Accuracy
+The accuracy score is simply the percentage of predictions that are correct. Here is the formuala to calculate accuracy.
+
+<img src="Resources/accuracy.png" alt="accuracy" style="height:50px;"/>
+
+The AdaBoost Classifier had an accuracy score 0.93, which means the model was correct 93% of the time.  This was significantly  higher than all the other models.
+
+### Precision
+Precision tells us how reliable is a positive classification.  For our puposes with credit risk, it is telling us if a loan is deemed to be "loan risk" how likely is it actually a "low risk" loan. Likewise, it would tell us if a loan was deemed "high risk", how likely it was actualy a "high risk" loan.
+
+Here is the formula for precision:
+
+<img src="Resources/precision.png" alt="precision" style="height:50px;"/>
+
+All of our models had almost 100% precision for low_risk loans. However, they all have low precision for high_risk loans.  The mean that most loans are being classified as "low_risk".  This is not so good for the banks because the "high_risk" loans are not be caught enough.  
+
+The best precision rate for "high risk" was the AdaBoost model with 0.07, meaning that it caught "high_risk" loans only 7% of the time.  
+
+### Recall / Sensitivity
+
+
+  
