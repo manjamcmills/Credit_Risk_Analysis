@@ -1,9 +1,7 @@
 # Credit_Risk_Analysis
 
 ## Overview
-Credit risk is an inherently unbalanced classification problem, as good loans easily outnumber risky
-loans. In this project, a credit card dataset from LendingClub, a peer-to-peer lending services
-company, was used to make various models by applying Machine Learning.
+Credit risk is an inherently unbalanced classification problem, as good loans easily outnumber risky loans. In this project, a credit card dataset from LendingClub, a peer-to-peer lending services company, was used to make various models by applying Machine Learning.
 The following methods were applied:
 1) Oversampling using the RandomOverSampler and SMOTE algorithms
 2) Undersampling using the ClusterCentroids algorithm
@@ -17,12 +15,11 @@ Before any of the techniques could be used, the data had to be cleaned and sorte
 The features included everything except "loan_status". Here is a snapshot of the features data frame called “X”:
 ![](Resources/X_group.png)
 
-The target group only contain the "loan_status". Here is a snapshot of the target data called “y”:
+The target group only contains the "loan_status". Here is a snapshot of the target data called “y”:
 
 <img src="Resources/y_group.png" alt="y_group" style="width:400px;"/>
 
-After separating into 2 groups, the “train_test_split” method from the scikit-learn library was used to further split
-the data into the 4 groups of X_train, X_test, y_train, and y_test.
+After separating into 2 groups, the “train_test_split” method from the scikit-learn library was used to further split the data into the 4 groups of X_train, X_test, y_train, and y_test.
 ![](Resources/train_test_groups.png)
 
 Since the majority class (68,470 “low risk loans”) and the minority class (347 “high risk loans”) were such different sizes, the following methods were applied to see which had the best results.
@@ -30,7 +27,7 @@ Since the majority class (68,470 “low risk loans”) and the minority class (3
 ## Oversampling Results
 
 ### Random Over Sampler
-One approach to addressing imbalanced datasets is to oversample the minority class. The RandomOverSampler method from imbalanced-learn library randomly duplicates examples in the minority class of the training dataset. After using this method, there were 51,366 “low_risk” and 51,366 “high_risk”.
+One approach to addressing imbalanced datasets is to oversample the minority class. The RandomOverSampler method, from the imbalanced-learn library, randomly duplicates examples in the minority class of the training dataset. After using this method, there were 51,366 “low_risk” and 51,366 “high_risk”.
 ![](Resources/random_over_sampler.png)
 Then a LogisticRegression model was used to “fit” the data using the scikit-learn library.
 ![](Resources/rand_log_reg.png)
@@ -43,11 +40,11 @@ Classification Report” was calculated using the imbalanced-learn library metho
 ### SMOTE Oversampling
 Another approach to addressing imbalanced datasets to oversample the minority class is that new examples can be synthesized from the existing examples. The Synthetic Minority Oversampling Technique, or SMOTE for short, method from imbalanced-learn library accomplishes this goal. SMOTE works by selecting examples that are close in the feature space, drawing a line between the examples in the feature space and drawing a new sample at a point along that line. 
 
-After using this method, similar to the RandomOver Sampling method, there were also 51,366
+After using this method, similar to the RandomOverSampling method, there were also 51,366
 “low_risk” and 51,366 “high_risk”.
 ![](Resources/smote.png)
 
-The following steps were applied just like before with theRandomOver Sampling method: 
+The following steps were applied just like before with theRandomOverSampling method: 
 
 ![](Resources/smote_2.png)
 
@@ -69,7 +66,7 @@ Just like before, the following steps were taken:
 1) The resampled data was fitted to a logistic regression model. 
 2) Balanced Accuracy was calculated
 3) Confusion Matrix was displayed
-4) The imbalanced classfication report was displayed
+4) The imbalanced classification report was displayed
 
 ![](Resources/cluster_more.png)
 
@@ -82,18 +79,18 @@ SMOTEENN combines the SMOTE and Edited Nearest Neighbors (ENN) algorithms. SMOTE
 1) Oversample the minority class with SMOTE.
 2) Clean the resulting data with an undersampling strategy. If the two nearest neighbors of a data point belong to two different classes, that data point is dropped.
 
-The SMOTEENN method was then applied to our data.  The result was having 68,460 "high_risk" and 62011 "low_risk". Then the model was created was our resampled & undersampled data.
+The SMOTEENN method was then applied to our data.  The result was having 68,460 "high_risk" and 62011 "low_risk". Then the model was created with our oversampled & undersampled data.
 
 ![](Resources/smoteenn.png)
 
-Yet again, the same coding/calculations were made to evaulated the model.
+Yet again, the same coding/calculations were made to evaluate the model.
 
 ![](Resources/smoteenn_2.png)
 
 
 ## Ensemble Classifiers Results
 
-Ensemble learning is the process of combining multiple models to help improve the accurary and strength, as well as decrease the variance of a model, in order to increase the overall performance of a model. 
+Ensemble learning is the process of combining multiple models to help improve the accuracy and strength, as well as decrease the variance of a model, in order to increase the overall performance of a model. 
 
 ### Balanced Random Forest Classifier
 Instead of having a single, complex tree like the ones created by decision trees, a random forest algorithm will sample the data and build several smaller, simpler decision trees. Each tree is simpler because it is built from a random subset of features. The Balanced Random Forest Classifier (from the imbalanced-learn library ) is an ensemble method in which each tree of the forest will be provided a balanced bootstrap sample which still provides all functionality of the RandomForestClassifier:
@@ -145,17 +142,31 @@ The accuracy score is simply the percentage of predictions that are correct. Her
 The AdaBoost Classifier had an accuracy score 0.93, which means the model was correct 93% of the time.  This was significantly  higher than all the other models.
 
 ### Precision
-Precision tells us how reliable is a positive classification.  For our puposes with credit risk, it is telling us if a loan is deemed to be "loan risk" how likely is it actually a "low risk" loan. Likewise, it would tell us if a loan was deemed "high risk", how likely it was actualy a "high risk" loan.
+Precision tells us how reliable a positive classification is.  For our purposes with credit risk, it is telling us if a loan is deemed to be "loan risk" how likely is it actually a "low risk" loan. Likewise, it would tell us if a loan was deemed "high risk", how likely it was actually a "high risk" loan.
 
 Here is the formula for precision:
 
 <img src="Resources/precision.png" alt="precision" style="height:50px;"/>
 
-All of our models had almost 100% precision for low_risk loans. However, they all have low precision for high_risk loans.  The mean that most loans are being classified as "low_risk".  This is not so good for the banks because the "high_risk" loans are not be caught enough.  
+All of our models had almost 100% precision for low_risk loans. However, they all have low precision for high_risk loans.  This means that most loans are being classified as "low_risk".  This is not so good for the banks because the "high_risk" loans are not being caught enough.  
 
 The best precision rate for "high risk" was the AdaBoost model with 0.07, meaning that it caught "high_risk" loans only 7% of the time.  
 
 ### Recall / Sensitivity
+Another way to assess a model's performance is with sensitivity, also called recall. Sensitivity is the converse statement of precision.  It would say "If a loan is actually high_risk, would the model classify it high_risk?" Here is the formula for sensitivity:
 
+<img src="Resources/sensitivity.png" alt="sensitivity" style="height:50px;"/>
 
-  
+The model with the best recall/sensitivity was again AdaBoost with a recall of 0.91 for high_risk and 0.94 for low_risk.  This means that loans that were actually high_risk were classified high_risk 91% of the time and loans that were actually low_risk were classified low_risk 94% of the time. 
+
+### F1 Score
+The F1 score is a way of combining the precision and recall of the model, and it is defined as the harmonic mean of the model’s precision and recall. Here is the formula for F1:
+
+<img src="Resources/F1.png" alt="F1" style="height:50px;"/>
+
+The model with the best F1 score for both high_risk and low_risk was yet again AdaBoost.  It had a F1-score of 0.14 for high_risk and 0.97 for low_risk. 
+
+### Recommendation
+It is apparent that the AdaBoost Classifier is the best model out of all 6. It had the highest scores for all the metrics discussed.  If a model had to be chosen from this bunch, I would choose AdaBoost.
+
+The main goal of this model is to flag "high_risk" loans and this model still has some room for improvement.  I would like to see more work done on another model to see if we can have a higher Precision & Recall to catch the "high_risk" loans.  Otherwise, the AdaBoost does seem like a good model if all other possible approaches have been tested.
