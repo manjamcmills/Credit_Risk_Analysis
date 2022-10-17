@@ -162,7 +162,7 @@ The model with the best recall/sensitivity was again AdaBoost with a recall of 0
 ### F1 Score
 The F1 score is a way of combining the precision and recall of the model, and it is defined as the harmonic mean of the model’s precision and recall. Here is the formula for F1:
 
-<img src="Resources/F1.png" alt="F1" style="height:50px;"/>
+![](Resources/f1.png)
 
 
 The model with the best F1 score for both high_risk and low_risk was yet again AdaBoost.  It had a F1-score of 0.14 for high_risk and 0.97 for low_risk. 
