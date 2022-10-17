@@ -30,7 +30,7 @@ Since the majority class (68,470 “low risk loans”) and the minority class (3
 
 ## Oversampling Results
 
-### RandomOverSampler
+### Random Over Sampler
 One approach to addressing imbalanced datasets is to oversample the minority class. The RandomOverSampler method from imbalanced-learn library randomly duplicates examples in the minority class of the training dataset. After using this method, there were 51,366 “low_risk” and 51,366 “high_risk”.
 ![](Resources/random_over_sampler.png)
 Then a LogisticRegression model was used to “fit” the data using the scikit-learn library.
@@ -60,7 +60,7 @@ The following steps were applied just like before with theRandomOver Sampling me
 Undersampling techniques remove examples from the training dataset that belong to the majority class in order to better balance the class distribution, such as reducing the skew from a 1:100 to a 1:10, 1:2,
 or even a 1:1 class distribution.
 
-### ClusterCentroids
+### Cluster Centroids
 Cluster centroid undersampling algorithm identifies clusters of the majority class, then generates synthetic data points, called centroids, that are representative of the clusters. The majority class is then undersampled down to the size of the minority class.
 
 After using the ClusterCentroids method on the data, there were 246 "high_risk" and 246 "low-risk". 
@@ -92,6 +92,31 @@ Yet again, the same coding/calculations were made to evaulated the model.
 ![](Resources/smoteenn_2.png)
 
 
+## Ensemble Classifiers Results
 
+Ensemble learning is the process of combining multiple models to help improve the accurary and strength, as well as decrease the variance of a model, in order to increase the overall performance of a model. 
 
+### Balanced Random Forest Classifier
+Instead of having a single, complex tree like the ones created by decision trees, a random forest algorithm will sample the data and build several smaller, simpler decision trees. Each tree is simpler because it is built from a random subset of features. The Balanced Random Forest Classifier (from the imbalanced-learn library ) is an ensemble method in which each tree of the forest will be provided a balanced bootstrap sample which still provides all functionality of the RandomForestClassifier:
+
+To use the Balanced Random Forest Classifier, we did an import for the imbalanced-learn library and then fit the model using our training data. 
+![](Resources/bal_rand_forest.png)
+
+Next, we used all the same metrics as before to evaluate our model:
+![](Resources/bal_rand_forest_2.png)
+
+To see which features, the model found the most important, a dataframe was then created which ordered the features in descending order:
+![](Resources/order_importance.png)
+
+Here is a graph which shows the same data:
+![](Resources/order_importance_graph.png)
+
+### Easy Ensemble AdaBoost Classifier
+Last, but not least, was the AdaBoost Ensemble. The AdaBoost algorithm involves using very short (one-level) decision trees as weak learners that are added sequentially to the ensemble. Each subsequent model attempts to correct the predictions made by the model before it in the sequence. This is achieved by weighing the training dataset to put more focus on training examples on which prior models made prediction errors
+
+Here is the code to apply AdaBoost and fit the model:
+![](Resources/easy.png)
+
+Here are the metrics to evaluate the model:
+![](Resources/easy_2.png)
 
