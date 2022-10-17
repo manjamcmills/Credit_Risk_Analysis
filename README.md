@@ -167,6 +167,6 @@ The F1 score is a way of combining the precision and recall of the model, and it
 The model with the best F1 score for both high_risk and low_risk was yet again AdaBoost.  It had a F1-score of 0.14 for high_risk and 0.97 for low_risk. 
 
 ### Recommendation
-It is apparent that the AdaBoost Classifier is the best model out of all 6. It had the highest scores for all the metrics discussed.  If a model had to be chosen from this bunch, I would choose AdaBoost.
+It is apparent that the AdaBoost Classifier is the best model out of all 6 choices. It had the highest scores for all the metrics discussed.  If a model had to be chosen from this bunch, I would choose AdaBoost.
 
 The main goal of this model is to flag "high_risk" loans and this model still has some room for improvement.  I would like to see more work done on another model to see if we can have a higher Precision & Recall to catch the "high_risk" loans.  Otherwise, the AdaBoost does seem like a good model if all other possibilities have been exhausted and tested.
