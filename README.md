@@ -152,14 +152,21 @@ Here is the formula for precision:
 
 All of our models had almost 100% precision for low_risk loans. However, they all have low precision for high_risk loans.  This means that most loans are being classified as "low_risk".  This is not so good for the banks because the "high_risk" loans are not being caught enough.  
 
-The best precision rate for "high risk" was the AdaBoost model with 0.07. This means that only 7% of the loans that were deemed "high risk" were actually "high risk". So 93% of loans that were classified as "high risk" were really "low risk".  
+The best precision rate for "high risk" was the AdaBoost model with 0.07. This means the following:
+* 7% of the loans that were deemed "high risk" were true "high risk"
+* 93% of loans that were classified as "high risk" were actually "low risk".  
+* 100% of the loans that were classfied "low risk" were true "low risk"
 
 ### Recall / Sensitivity
 Another way to assess a model's performance is with sensitivity, also called recall. Sensitivity is the converse statement of precision.  It would say "If a loan is actually high_risk, would the model classify it high_risk?" Here is the formula for sensitivity:
 
 <img src="Resources/sensitivity.png" alt="sensitivity" style="height:50px;"/>
 
-The model with the best recall/sensitivity was again AdaBoost with a recall of 0.91 for high_risk and 0.94 for low_risk.  This means that loans that were actually high_risk were classified high_risk 91% of the time and loans that were actually low_risk were classified low_risk 94% of the time. 
+The model with the best recall/sensitivity was again AdaBoost with a recall of 0.91 for high_risk and 0.94 for low_risk.  This means the following:
+* 91% of true "high risk" loans were classified "high risk"
+* 9% of true "high risk" loans were classfied "low risk"
+* 94% of the "low risk" loans were classified "low risk" 
+* 6% of the "low risk" loans were classified as "high risk"
 
 ### F1 Score
 The F1 score is a way of combining the precision and recall of the model, and it is defined as the harmonic mean of the model’s precision and recall. Here is the formula for F1:
