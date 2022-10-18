@@ -129,7 +129,7 @@ To decide which of the models is the best to use, I made a summary table with al
 There are other metrics besides these, but I felt that these were the ones I should focus on.
 
 Here is the model summary table:
-![](Resources/summary.PNG)
+![](Resources/SUMMARY.png)
 
 
 *Note* <br>
@@ -152,7 +152,7 @@ Here is the formula for precision:
 
 All of our models had almost 100% precision for low_risk loans. However, they all have low precision for high_risk loans.  This means that most loans are being classified as "low_risk".  This is not so good for the banks because the "high_risk" loans are not being caught enough.  
 
-The best precision rate for "high risk" was the AdaBoost model with 0.07, meaning that it caught "high_risk" loans only 7% of the time.  
+The best precision rate for "high risk" was the AdaBoost model with 0.07. This means that only 7% of the loans that were deemed "high risk" were actually "high risk". So 93% of loans that were classified as "high risk" were really "low risk".  
 
 ### Recall / Sensitivity
 Another way to assess a model's performance is with sensitivity, also called recall. Sensitivity is the converse statement of precision.  It would say "If a loan is actually high_risk, would the model classify it high_risk?" Here is the formula for sensitivity:
