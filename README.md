@@ -137,7 +137,7 @@ TP = True Positive &nbsp; FP = False Positive &nbsp;
 TN = True Negative  &nbsp;  FN = False Negative
 
 ### Accuracy
-The accuracy score is simply the percentage of predictions that are correct. Here is the formuala to calculate accuracy.
+The accuracy score is simply the percentage of predictions that are correct. Here is the formula to calculate accuracy:
 
 <img src="Resources/accuracy.png" alt="accuracy" style="height:50px;"/>
 
@@ -155,7 +155,7 @@ All of our models had almost 100% precision for low_risk loans. However, they al
 The best precision rate for "high risk" was the AdaBoost model with 0.07. This means the following:
 * 7% of the loans that were deemed "high risk" were true "high risk"
 * 93% of loans that were classified as "high risk" were actually "low risk".  
-* 100% of the loans that were classfied "low risk" were true "low risk"
+* 100% of the loans that were classified "low risk" were true "low risk"
 
 ### Recall / Sensitivity
 Another way to assess a model's performance is with sensitivity, also called recall. Sensitivity is the converse statement of precision.  It would say "If a loan is actually high_risk, would the model classify it high_risk?" Here is the formula for sensitivity:
@@ -164,7 +164,7 @@ Another way to assess a model's performance is with sensitivity, also called rec
 
 The model with the best recall/sensitivity was again AdaBoost with a recall of 0.91 for high_risk and 0.94 for low_risk.  This means the following:
 * 91% of true "high risk" loans were classified "high risk"
-* 9% of true "high risk" loans were classfied "low risk"
+* 9% of true "high risk" loans were classified "low risk"
 * 94% of the "low risk" loans were classified "low risk" 
 * 6% of the "low risk" loans were classified as "high risk"
 
