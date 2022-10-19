@@ -179,4 +179,6 @@ The model with the best F1 score for both high_risk and low_risk was yet again A
 ### Recommendation
 It is apparent that the AdaBoost Classifier is the best model out of all 6 choices. It had the highest scores for all the metrics discussed.  If a model had to be chosen from this bunch, I would choose AdaBoost.  When dealing with credit risk, it is better to flag a loan "high risk" when it is actually "low risk", than to let a "high risk" loan go undedected. 
 
-The main goal of this model is to flag "high_risk" loans and this model still has some room for improvement.  I would like to see more work done on another model to see if we can have a higher Precision & Recall to catch all the "high_risk" loans more accurately.  Otherwise, the AdaBoost does seem like a good model if all other strategies have been exhausted and tested.
+The main goal of this model is to flag "high risk" loans and this model still has some room for improvement.  
+It might be advangtages to try another maching learning algorithm to see if we can have a higher Precision & Recall score.
+Otherwise, the AdaBoost algorithm does seem like a good model if all other strategies have been exhausted and tested.
