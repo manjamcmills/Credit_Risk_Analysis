@@ -123,7 +123,6 @@ To decide which of the models is the best to use, I made a summary table with al
 * accuracy
 * Precision
 * Recall (Sensitivity)
-* Specificity
 * F1 Score
   
 There are other metrics besides these, but I felt that these were the ones I should focus on.
